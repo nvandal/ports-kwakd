@@ -1,0 +1,29 @@
+#!/bin/sh
+
+# $FreeBSD$
+#
+# PROVIDE: kwakd
+# REQUIRE: LOGIN
+# KEYWORD: shutdown
+#
+# Add the following lines to /etc/rc.conf.local or /etc/rc.conf
+# to enable this service:
+#
+# kwakd_enable (bool):	Set to NO by default.
+#			Set it to YES to enable doormand.
+# kwakd_port (number):	Set to 8000 by default 
+
+. /etc/rc.subr
+
+name=kwakd
+rcvar=kwakd_enable
+
+load_rc_config $name
+
+: ${kwakd_enable:="NO"}
+: ${kwakd_port="8000"}
+
+command=%%PREFIX%%/bin/${name}
+command_args="-b -p $kwakd_port"
+
+run_rc_command "$1"

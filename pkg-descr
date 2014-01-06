@@ -1,0 +1,4 @@
+This is a port of Kwakd, which is a very small foot print web server written in
+C (under 400 lines of code) that serves blank html pages for any request.
+
+WWW: https://code.google.com/p/kwakd/
